@@ -10,3 +10,7 @@ resource "aws_iam_user" "swinnytodd" {
   path = "/users/"
 }
 
+resource "aws_iam_user" "txd3h" {
+  name = "txd3h"
+  path = "/users/"
+}
