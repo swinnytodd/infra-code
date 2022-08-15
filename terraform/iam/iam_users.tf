@@ -1,4 +1,4 @@
-resource "aws_iam_user" "marvin4ward" {
+resource "aws_iam_user" "prototype" {
   name = "prototype"
   path = "/users/"
 }
