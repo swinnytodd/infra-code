@@ -1,2 +1,6 @@
 # file for iam users
-# Hi, I am a new Valentin_user! *********
+
+resource "aws_iam_user" "valentin" {
+  name = "valentin"
+  path = "/users/"
+}
