@@ -11,3 +11,9 @@ output "default_tags" {
     Warning = "Managed by terraform do not edit"
   }
 }
+
+output "ecr" {
+  value = {
+    name = "infra-code-ecr"
+  }
+}
