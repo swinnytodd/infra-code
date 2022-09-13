@@ -1,0 +1,13 @@
+{
+  "variable": {
+    "bucket_name": {
+      "default": "terraform-state-cst"
+    },
+    "bucket_region": {
+      "default": "us-east-1"
+    },
+    "locks": {
+      "default": "terraform_state_lock"
+    }
+  }
+}
