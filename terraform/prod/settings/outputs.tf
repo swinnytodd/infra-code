@@ -7,5 +7,5 @@ output "default_tags" {
 }
 
 output "domain" {
- value = "production.com"
+  value = "production.com"
 }
