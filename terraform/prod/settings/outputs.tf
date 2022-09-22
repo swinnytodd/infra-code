@@ -9,3 +9,7 @@ output "default_tags" {
 output "domain" {
   value = "production.com"
 }
+
+output "values" {
+  value = module.shared.output
+}
