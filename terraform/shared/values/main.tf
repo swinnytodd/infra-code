@@ -15,3 +15,10 @@ module "ecr" {
   group    = "shared"
   resource = "ecr"
 }
+
+module "lb" {
+  source   = "../../modules/get_remote_data"
+  vars     = module.settings
+  group    = "shared"
+  resource = "lb"
+}
