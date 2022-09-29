@@ -14,6 +14,10 @@ output "environment" {
   value = "Production"
 }
 
+output "env" {
+  value = "prod"
+}
+
 output "values" {
   value = module.shared.output
 }
