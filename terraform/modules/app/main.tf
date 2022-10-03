@@ -26,6 +26,8 @@ resource "aws_autoscaling_group" "app" {
   max_size           = 1
   min_size           = 1
 
+  target_group_arns = [var.vars.tgapp.arn]
+
   launch_template {
     id      = aws_launch_template.app.id
     version = "$Latest"
