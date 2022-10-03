@@ -15,7 +15,7 @@ resource "aws_launch_template" "app" {
 
   key_name = "ubuntu"
 
-  user_data = base64encode(templatefile("${path.module}/user-data.shtpl", { Environment = var.vars.environment }))
+  user_data = base64encode(templatefile("${path.module}/user-data.shtpl", { Environment = var.vars.environment, env = var.vars.env }))
 
 }
 
@@ -55,7 +55,7 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_security_group" "allow_http" {
-  name        = "allow_app_http"
+  name        = "${var.vars.env}-allow_app_http"
   description = "Allow HTTP inbound traffic"
   vpc_id      = var.vars.values.vpc.vpc_id
 

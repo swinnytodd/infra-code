@@ -21,3 +21,7 @@ output "env" {
 output "values" {
   value = module.shared.output
 }
+
+output "lb_rule_priority" {
+  value = "100"
+}
