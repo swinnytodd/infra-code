@@ -7,15 +7,15 @@ output "default_tags" {
 }
 
 output "domain" {
-  value = "production.com"
+  value = "staging.com"
 }
 
 output "environment" {
-  value = "Production"
+  value = "Staging"
 }
 
 output "env" {
-  value = "prod"
+  value = "stage"
 }
 
 output "values" {
@@ -23,5 +23,5 @@ output "values" {
 }
 
 output "lb_rule_priority" {
-  value = "100"
+  value = "200"
 }
