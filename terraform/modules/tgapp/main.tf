@@ -16,3 +16,19 @@ resource "aws_lb_target_group" "app" {
     matcher             = "200,202"
   }
 }
+
+resource "aws_lb_listener_rule" "lb_rule" {
+  listener_arn = var.vars.values.lb.lb_listner_arn
+  priority     = var.vars.lb_rule_priority
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.app.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/${var.vars.env}/*"]
+    }
+  }
+}
