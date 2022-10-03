@@ -10,6 +10,10 @@ output "domain" {
   value = "production.com"
 }
 
+output "environment" {
+  value = "Production"
+}
+
 output "values" {
   value = module.shared.output
 }
