@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+    
+ db:
+    image: mysql:8.0
+    container_name: db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: wpdb
+      MYSQL_USER: clouduser
+      MYSQL_PASSWORD: ourpassw
+      MYSQL_RANDOM_ROOT_PASSWORD: '123456'
+    volumes:
+      - .dbdata:/var/lib/mysql
+            
+ wordpress:
+    depends_on:
+      - db
+    build:
+      context: ./../../wp-sample/
+    container_name: wordpress
+    restart: unless-stopped
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: clouduser
+      WORDPRESS_DB_PASSWORD: ourpassw
+      WORDPRESS_DB_NAME: wpdb
+    volumes:
+      - .wordpress:/var/www/html
+       
+ nginx:
+    container_name: nginx
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+            - 80:80
+            - 443:443
+    volumes:
+          - ./nginx:/etc/nginx/conf.d
+          - .wordpress:/var/www/html
+          - ./ssl:/etc/nginx/ssl/ 
+        
+
+
